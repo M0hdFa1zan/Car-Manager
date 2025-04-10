@@ -3,11 +3,10 @@ import { useState, useEffect } from "react";
 const SearchBar = ({ search, setSearch }) => {
     const [inputValue, setInputValue] = useState(search);
 
-    // Debounce search input to avoid excessive API calls
     useEffect(() => {
         const timer = setTimeout(() => {
             setSearch(inputValue);
-        }, 500); // 500ms delay
+        }, 500);
 
         return () => clearTimeout(timer);
     }, [inputValue, setSearch]);
